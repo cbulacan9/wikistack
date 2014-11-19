@@ -17,6 +17,10 @@ a {
 	background-color: blue;
 }
 
-.links {
-	padding: 10px 20px 50px 20px;
+.footerspace {
+	padding-top: 50px;
+}
+
+.largeform {
+	height: 400px;
 }
