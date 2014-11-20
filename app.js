@@ -11,6 +11,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var add_routes = require('./routes/add');
 var page_route = require('./routes/show_page')
+var edit_route = require('./routes/edit')
 
 var app = express();
 app.engine('html', swig.renderFile);
@@ -31,7 +32,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/add', add_routes);
 app.use('/show_page/', page_route);
-
+app.use('/edit_page/', edit_route)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');

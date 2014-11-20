@@ -3,14 +3,14 @@
 {% block content %}
 
     <h3>{{title}}</h3>
-    <form action='/add/submit' method='post'>
+    <form action='/edit_page/{{ page.url_name }}/submit' method='post'>
         <div class="form-group formsheet">
              <label for="title">PAGE TITLE</label>
-             <input name="title" class="form-control" id="title">
+             <input name="title" value="{{ page.title }}" class="form-control" id="title">
         </div>
         <div class="form-group">
             <label for="content">PAGE CONTENT</label>
-            <textarea name="content" class="form-control" id="content" rows="11"></textarea>
+            <textarea name="content" class="form-control" id="content" rows="11">{{ page.body }}</textarea>
         </div>
             <button type="submit" class="btn btn-default">Submit</button>
     </form>

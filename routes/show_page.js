@@ -14,4 +14,17 @@ router.get('/:url', function(req, res) {
 
 });
 
+router.post('/submit', function(req, res) {
+	res.redirect('/edit');
+});
+
+router.get('/:url/delete', function(req, res) {
+	var url = req.params.url;
+	console.log(url);
+	models.Page.findOneAndRemove({url_name: url},function(err, page) {
+		res.redirect('/');
+		console.log("Success!")
+	});
+});
+
 module.exports = router;
