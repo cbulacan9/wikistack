@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+	{% block content %}
+
+	    <h3>{{title}}</h3>
+
+	    <div class="container">
+			  <ul>
+			    {% for doc in docs %}
+			      <li>{{doc|dis_link}}</li>
+			    {% endfor %}
+			  </ul>
+		</div>
+	    
+	{% endblock %}

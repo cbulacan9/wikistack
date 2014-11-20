@@ -4,24 +4,24 @@ var mongoose = require('mongoose')
 var models = require('../models')
 
 /* GET home page. */
-router.get('/:url', function(req, res) {
+router.get('/:url/:id', function(req, res) {
   var url = req.params.url;
-
-	models.Page.findOne ({ url_name: url })
+  var id = req.params.id;
+	models.Page.findOne ({ _id: id })
 	.exec(function(err, page) {
-  		res.render('show_page', page );
+  			res.render('show_page', page );
   	});
-
 });
 
 router.post('/submit', function(req, res) {
 	res.redirect('/edit');
 });
 
-router.get('/:url/delete', function(req, res) {
+router.get('/:url/:id/delete', function(req, res) {
 	var url = req.params.url;
+	var id = req.params.id;
 	console.log(url);
-	models.Page.findOneAndRemove({url_name: url},function(err, page) {
+	models.Page.findOneAndRemove({_id: id},function(err, page) {
 		res.redirect('/');
 		console.log("Success!")
 	});

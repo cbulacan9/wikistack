@@ -1,16 +1,17 @@
 {% extends "layout.html" %}
 
     {% block content %}
+
     <h3>{{ title }}</h3>
 	<div class = "container">
   		{{body|markedFilter}}
 	</div> 
-		<a href="/edit_page/{{url_name}}">
+		<a href="/edit_page/{{url_name}}/{{id}}">
 		<button class="btn btn-default">
 	  			<span class="glyphicon glyphicon-edit"> Edit </span>
 		</button></a>
 		
-		<a href="/show_page/{{url_name}}/delete">
+		<a href="/show_page/{{url_name}}/{{id}}/delete">
 		<button class="btn btn-default" >
 	  			<span class="glyphicon glyphicon-fire"> Delete</span>
 		</button></a>

@@ -14,23 +14,23 @@ var page_link = function (doc) {
     } else {
       link_name = "Page "+doc.url_name;
     }
-    return "<a href='/show_page/"+doc.url_name+"'>"+link_name+"</a>";
+    return "<a href='/dis/"+doc.url_name+"'>"+link_name+"</a>";
 };
 page_link.safe = true;
 
 swig.setFilter('page_link', page_link);
 
-var edit_link = function (doc) {
+var dis_link = function (doc) {
   var link_name;
     if (typeof doc.title !== "undefined" && doc.title !== "") {
       link_name = doc.title
     } else {
       link_name = "Page "+doc.url_name;
     }
-    return "<a href='/edit_page/"+doc.url_name+"'>"+link_name+"</a>";
+    return "<a href='/show_page/"+doc.url_name+"/"+doc._id+"'>"+link_name+"</a>"+", "+doc.body.substring(0,75);
 };
-edit_link.safe = true;
+dis_link.safe = true;
 
-swig.setFilter('edit_link', edit_link);
+swig.setFilter('dis_link', dis_link);
 
 };
